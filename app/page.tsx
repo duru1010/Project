@@ -15,35 +15,43 @@ const CyberScene = dynamic(() => import('./CyberCanvas'), {
   ),
 });
 
-// Explicitly pass down state to avoid scoping errors
-function CustomLogo({ isShieldActive }) {
+interface CustomLogoProps {
+  isShieldActive: boolean;
+}
+
+function CustomLogo({ isShieldActive }: CustomLogoProps) {
   return (
     <div className="flex items-center gap-2 font-bold text-xl tracking-wider cursor-pointer group">
-      <svg 
-        width="28" 
-        height="28" 
-        viewBox="0 0 32 32" 
-        fill="none" 
-        xmlns="my-app/public/jmkc-white-logo.png"
+      <svg
+        width="28"
+        height="28"
+        viewBox="0 0 32 32"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
         className="transition-transform duration-500 group-hover:rotate-12"
       >
-        <path 
-          d="M16 2L30 10V22L16 30L2 22V10L16 2Z" 
-          stroke={isShieldActive ? "#c084fc" : "#22d3ee"} 
-          strokeWidth="1.5" 
+        <path
+          d="M16 2L30 10V22L16 30L2 22V10L16 2Z"
+          stroke={isShieldActive ? "#c084fc" : "#22d3ee"}
+          strokeWidth="1.5"
           strokeLinejoin="round"
           className="transition-colors duration-1000"
         />
-        <circle 
-          cx="16" 
-          cy="16" 
-          r="4" 
+        <circle
+          cx="16"
+          cy="16"
+          r="4"
           fill={isShieldActive ? "#a855f7" : "#06b6d4"}
-          className="transition-colors duration-1000 animate-pulse" 
+          className="transition-colors duration-1000 animate-pulse"
         />
-        <path d="M16 6V10M16 22V26M8 12L11 14M21 18L24 20" stroke="#38bdf8" strokeWidth="1.5" strokeLinecap="round"/>
+        <path
+          d="M16 6V10M16 22V26M8 12L11 14M21 18L24 20"
+          stroke="#38bdf8"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
       </svg>
-      
+
       <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-100 via-slate-200 to-slate-400 font-extrabold tracking-widest">
         JMKC<span className="text-cyan-400 font-light"></span>
       </span>
